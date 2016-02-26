@@ -17,6 +17,12 @@ windows_package node['bbwin']['package_name'] do
   source "#{Chef::Config['file_cache_path']}\\#{msi_file_name}"
 end
 
+bbwin_setting 'bbdisplay' do
+  section 'bbwin'
+  value '127.0.0.1'
+  notifies :restart, 'service[bbwin]'
+end
+
 service 'bbwin' do
   action [ :start, :enable ]
 end

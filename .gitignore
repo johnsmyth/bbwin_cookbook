@@ -1,3 +1,4 @@
+test_only/
 .vagrant
 Berksfile.lock
 *~
