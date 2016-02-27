@@ -14,7 +14,12 @@ To install an older version, you can override ```node['bbwin']['version'] and no
 
 ##lwrps
 ###bbwin_setting
-changes a setting in the bbwin.cfg config file.
+Changes a setting in the bbwin.cfg config file. This resource will add the setting if it does not exist, and will
+add any options that dont already exist.  If the section to which it is being added does not exist it will 
+be created as well.  Any setting not specified will remain unchanged. You may want to use a template for the config
+file if you have many settings that need to be changed.  Its probably not a good idea to use both a template for the 
+bbwin.cfg as well as this resource, however, as they will probably conflict.
+
 ####actions
 * :set (default) - sets the seting to the value and options specified, or creates the setting if it does not exist
 
