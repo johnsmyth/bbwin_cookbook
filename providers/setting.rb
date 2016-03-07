@@ -54,7 +54,7 @@ def create_setting_node(config_doc, section, setting_name)
   section_node = get_section(config_doc, section)
   section_node = create_section(config_doc, section) unless section_node
 
-  new_node = section_node.add_child(Nokogiri::XML::Node.new 'setting', config_doc)
+  new_node = section_node.add_child(Nokogiri::XML::Node.new('setting', config_doc))
   new_node['name'] = setting_name
   get_setting(config_doc, section, setting_name)
 end
@@ -69,6 +69,6 @@ end
 
 def create_section(xml_doc, section)
   config_node = xml_doc.xpath('/configuration')[0]
-  config_node.add_child(Nokogiri::XML::Node.new section, config_node)
+  config_node.add_child(Nokogiri::XML::Node.new(section, config_node))
   get_section(xml_doc, section)
 end

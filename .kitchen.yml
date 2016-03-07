@@ -6,10 +6,16 @@ provisioner:
   name: chef_zero
 
 platforms:
+  - name: windows-2012r2-core
+    driver_config:
+      box: beubi/wServer2012r2core
+      communicator: winrm
+      gui: true
+    transport:
+      name: winrm
   - name: windows-2008r2
     driver_config:
       box: opentable/win-2008r2-datacenter-amd64-nocm
-      vm_hostname: w2012R1
       communicator: winrm
       gui: true
     transport:
@@ -17,7 +23,6 @@ platforms:
   - name: windows-2012r2
     driver_config:
       box: opentable/win-2012r2-standard-amd64-nocm
-      vm_hostname: w2012R1
       communicator: winrm
       gui: true
     transport:
